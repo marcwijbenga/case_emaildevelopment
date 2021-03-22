@@ -1,0 +1,56 @@
+%%[
+var @Json
+set @Json = {
+   "Customer_Info": {
+      "First_Name": "Marc",
+      "Surname": "Wijbenga",
+      "QR_Code": "XV34QW"
+   },
+   "ordereditems": {
+      "item1": {
+         "article_name": "Custom Made Jacket",
+         "article_size": "46",
+         "quantity": "1",
+         "article_fabric": "Blue Plain Linen",
+         "article_fit": "Havana - Single Breasted",
+         "article_linning": "Navy",
+         "article_buttons": "Light Grey & Charcoal"
+      },
+      "item2": {
+         "article_name": "Custom Made Trousers",
+         "article_size": "46",
+         "quantity": "1",
+         "article_fabric": "Cotton Blend",
+         "article_fit": "Braddon",
+         "article_linning": "With turn up",
+         "article_waistband": "Belt loops",
+         "article_buttons": "Maroon & Dark Brown"
+      }
+   }
+}
+]%%
+
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title></title>
+ <meta name="description" content="">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script runat="server">
+    Platform.Load("Core", "1")
+     var str = '{ "prop1": "propVal" }';
+     var obj = Platform.Function.ParseJSON(str);
+     var val = obj.prop1;
+     Variable.SetValue("@First_Name",val);
+ </script>
+   
+	<tr>
+      <td align="center" valign="middle" style="font-family: GT America; color: #2D2E2C; font-size: 20px; mso-line-height-rule: exactly; line-height: 28px; text-align: center; padding-left: 20px; padding-right: 20px;" bgcolor="#FFFFFF">%%=v(@First_Name)=%%<br></td>
+	</tr>
+</body>
+</html>
+
+
